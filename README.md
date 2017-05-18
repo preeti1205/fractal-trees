@@ -1,2 +1,2 @@
 # fractal-trees
-Fractcal trees in C++
+Fractal trees in C++
