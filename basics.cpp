@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <cmath>
+#include "color.h"
 using namespace std;
 
 class Point {
@@ -66,20 +67,6 @@ public:
       t = t0 < t1 ? t0 : t1;
       return true;
     }
-  }
-};
-
-struct Color {
-  double r, g, b;
-  Color(): r(0), g(0), b(0) {}
-  Color(double red, double green, double blue): r(red), g(green), b(blue) {}
-
-  Color operator*(const double scale) {
-    return Color(r*scale, g*scale, b*scale);
-  }
-
-  Color operator+(Color mix) {
-    return Color( (r + mix.r)/2, (g + mix.g)/2, (b + mix.b)/2);
   }
 };
 
