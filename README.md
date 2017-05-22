@@ -20,5 +20,5 @@ Here is are few samples:
 
 ### Branching at 50 degrees
 
-<img src="images/Tree2.png"/>
+<img src="images/Tree3.png"/>
 
