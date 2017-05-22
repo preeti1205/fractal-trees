@@ -23,12 +23,12 @@ int main() {
   double degrees;
   const double sWidth = canvas.windowWidth();
   const double sHeight = canvas.windowHeight();
-  cout << "Enter an angle between 0 to 90 degrees: ";
+  cout << "Enter an angle between 0 to 50 degrees: ";
   cin >> degrees;
   Vec rootA(sWidth/2,sHeight);
   Vec rootB(sWidth/2, sHeight - 100);
   createTree(canvas, rootA, rootB, degrees);
-  ofstream out("Tree.ppm");
-  canvas.buildCanvas(out);
-
+  ofstream outfile("Tree.ppm");
+  canvas.buildCanvas(outfile);
+  outfile.close();
 }
