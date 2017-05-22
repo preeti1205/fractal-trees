@@ -31,4 +31,5 @@ int main() {
   ofstream outfile("Tree.ppm");
   canvas.buildCanvas(outfile);
   outfile.close();
+  return 0;
 }
