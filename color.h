@@ -1,6 +1,7 @@
 #ifndef COLOR
 #define COLOR
 
+// Defines the colors for entities in canvas.
 struct Color {
     Color(): r(0), g(0), b(0) {}
     Color(double red, double green, double blue): r(red), g(green), b(blue) {}

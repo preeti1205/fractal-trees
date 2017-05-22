@@ -1,26 +1,25 @@
-#ifndef SCREEN
-#define SCREEN
+#ifndef CANVAS_H
+#define CANVAS_H
 
 #include "color.h"
-#include "figures.h"
+#include "vec.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <cmath>
 
-//Todo : Change Screen to Canvas
-
-class Screen {
+// The class used for creating the canvas object. Graphics is drawn over the
+// canvas. 
+class Canvas {
 public:
-  Screen(): width(500), height(500) {}
+  Canvas(): width(500), height(500) {}
 
   int windowWidth() { return width; }
   int windowHeight() { return height; }
 
   //build the final canvas
-  void buildScreen(std::ofstream &out) {
+  void buildCanvas(std::ofstream &out) {
     out << "P3\n" << width << std::endl << height << std::endl << "255\n" ;
-    //Color pixel_col[height][width];
     for(int y = 0; y < height; ++y) {
       for(int x = 0; x < width; ++x) {
         out << (int)pixel_col[x][y].r << std::endl;
@@ -30,23 +29,16 @@ public:
     }
   }
 
-  void translate(double x_, double y_) {
-    origin.x += x_;
-    origin.y += y_;
-  }
-
-  void rotate(double degrees) {
-    // Todo:  add a case for negative angles
-    double theta = (degrees * PI / 180.0);
-    double cosVal = cos(theta);
-    double sinVal = sin(theta);
-    double newX = (origin.x)*cosVal - (origin.y)*sinVal;
-    double newY = (origin.x)*sinVal - (origin.y)*cosVal;
-
-  }
-
-  //Bresenham's line algorithm  -- to draw a line approximation
-  void drawBranch(Vec startP, Vec endP) {
+  // Bresenham's line algorithm  -- to draw a line approximation
+  // Calculates the coordinates for an approximate line between two vectors on the canvas
+  // and populates the Canvas:pixel_col array accordingly
+  // Source: https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
+  // Input:
+  //        startP: Start vector
+  //        endP  : End vector
+  //        mag   : Length of the line
+  // Return: void
+  void createBranch(Vec startP, Vec endP, double mag) {
     const bool slope = fabs(endP.y - startP.y) > fabs(endP.x - startP.x);
 
     if(slope) {
@@ -71,11 +63,13 @@ public:
     {
       if(slope)
       {
-          pixel_col[yMid][x].r = 255;
+          pixel_col[yMid][x].g = mag*255;
+          pixel_col[yMid][x].b = mag*200;
       }
       else
       {
-          pixel_col[x][yMid].r = 255;
+          pixel_col[x][yMid].g = mag*255;
+          pixel_col[x][yMid].b = mag*200;
       }
    
       error -= dy;
@@ -85,17 +79,6 @@ public:
           error += dx;
       }
     }
-    // double D = 2*dy - dx;
-    // int yMid = startP.y;
-
-    // for(int x = startP.x; x < endP.x ; ++x) {
-    //   pixel_col[yMid][x].r = 255;
-    //   if ( D > 0 ) {
-    //      yMid += 1;
-    //      D -= 2*dx;
-    //   }
-    //   D += 2*dy ;
-    // }
   }
 
 private:
@@ -104,4 +87,5 @@ private:
   Vec origin;
   Color pixel_col[500][500];
 };
+
 #endif
