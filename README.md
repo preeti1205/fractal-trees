@@ -2,7 +2,7 @@
 Fractal trees in C++
 
 I have always been fascinated by beautiful graphics and animation. I came across this 
-[super cool video by Daniel Shiffman](https://www.youtube.com/watch?v=0jjeOYMjmDU) a weeks ago and decided to build it in C++ without using any frameworks.
+[super cool video by Daniel Shiffman](https://www.youtube.com/watch?v=0jjeOYMjmDU) a few weeks ago and decided to build it in C++ without using any frameworks.
 
 The program uses Bresenham's line algorithm to draw the approximation of a line. It also uses basic 
 high school vector geometry.
