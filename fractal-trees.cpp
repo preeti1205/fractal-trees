@@ -28,7 +28,7 @@ int main() {
   Vec rootA(sWidth/2,sHeight);
   Vec rootB(sWidth/2, sHeight - 100);
   createTree(canvas, rootA, rootB, degrees);
-  ofstream out("drawTree.ppm");
+  ofstream out("Tree.ppm");
   canvas.buildCanvas(out);
 
 }
