@@ -9,9 +9,9 @@ high school vector geometry.
 
 Here is are few samples:
 
-[Branching at 10 degree](Tree1.ppm)
+[Branching at 10 degree](Tree1.png)
 
-[Branching at 30 degree](Tree2.ppm)
+[Branching at 30 degree](Tree2.png)
 
-[Branching at 50 degree](Tree3.ppm)
+[Branching at 50 degree](Tree3.png)
 
