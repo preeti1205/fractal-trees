@@ -9,15 +9,15 @@ high school vector geometry.
 
 Here is are few samples:
 
-## Branching at 30 degrees
+### Branching at 10 degrees
 
 ![Branching at 10 degree](Tree1.png)
 
-## Branching at 30 degrees
+### Branching at 30 degrees
 
 <img src="Tree2.png"/>
 
-## Branching at 50 degrees
+### Branching at 50 degrees
 
 <img src="Tree2.png"/>
 
